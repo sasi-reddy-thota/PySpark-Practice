@@ -98,7 +98,7 @@ INSERT INTO Products VALUES
 
 SELECT * FROM Orders
 
-WITH cte as(
+explain WITH cte as(
     SELECT
         *
         ,FIRST_VALUE(order_date) OVER(PARTITION BY product_id ORDER BY order_date DESC) as recent_order_date
